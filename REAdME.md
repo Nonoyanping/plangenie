@@ -15,12 +15,12 @@ The Todo CLI App is a simple command-line application written in Rust that allow
 ### Installation
 1. Clone the repository:
 ```shell
-git clone https://github.com/your_username/todo-cli-app.git
+git clone git@github.com:Nonoyanping/plangenie.git
 ```
 
 2. Navigate to the project directory:
 ```shell
-cd todo-cli-app
+cd plangenie
 ```
 ### Usage
 1. Compile and run the application:
