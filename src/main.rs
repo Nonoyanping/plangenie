@@ -6,14 +6,22 @@ mod todo_item;
 mod todo_list;
 
 fn main() {
+    println!("##################################################");
+    println!("############### This is PlanGenie ################");
+    println!("##################################################");
+
     let mut todo_list = todo_list::TodoList::new();
 
+    println!(" ");
+    println!("@Enter a number between 1 ~ 5 to do something!@");
+    println!("--------------------------------------------------");
+
     loop {
-        print!("1. Add todo.");
-        print!("2. Remove todo.");
-        print!("3. List todo.");
-        print!("4. Toggle todo status.");
-        print!("5. Quit");
+        println!("1.Add todo.");
+        println!("2.Remove todo.");
+        println!("3.List todo.");
+        println!("4.Toggle todo status.");
+        println!("5.Quit");
 
         let mut choice = String::new();
         io::stdin()
@@ -30,14 +38,17 @@ fn main() {
 
         match choice {
             1 => {
-                println!("[Todo]: ");
+                println!("--------------------------------------------------");
+                println!("Enter todos: ");
                 let mut text = String::new();
                 io::stdin()
                     .read_line(&mut text)
                     .expect("Failed to read line");
                 todo_list.add(text.trim().to_string());
+                println!("--------------------------------------------------");
             }
             2 => {
+                println!("--------------------------------------------------");
                 println!("Enter todo ID to remove: ");
                 let mut id_str = String::new();
                 io::stdin()
@@ -55,12 +66,16 @@ fn main() {
                 } else {
                     println!("Todo with ID {} not found.", id);
                 }
+                println!("--------------------------------------------------");
             }
             3 => {
+                println!("--------------------------------------------------");
                 println!("Todo List:");
                 todo_list.list();
+                println!("--------------------------------------------------");
             }
             4 => {
+                println!("--------------------------------------------------");
                 println!("Enter todo ID to toggle status: ");
                 let mut id_str = String::new();
                 io::stdin()
@@ -75,9 +90,11 @@ fn main() {
                 };
                 todo_list.toggle_status(id);
                 println!("Todo status toggled successfully!");
+                println!("--------------------------------------------------");
             }
             5 => {
-                println!("Goodbye!");
+                println!("--------------------------------------------------");
+                println!("Goodbye! See you next time!");
                 break;
             }
             _ => println!("Invalid choice. Please enter a number between 1 and 5."),
